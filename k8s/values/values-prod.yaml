@@ -1,0 +1,19 @@
+replicaCount: 3
+
+image:
+  repository: acrshyam.azurecr.io/loginpage
+  tag: "latest"
+
+service:
+  type: LoadBalancer
+  port: 80
+
+resources:
+  requests:
+    cpu: "300m"
+    memory: "512Mi"
+  limits:
+    cpu: "600m"
+    memory: "1Gi"
+
+env: prod

@@ -23,9 +23,9 @@ variable "vm_name" {
 }
 
 variable "admin_username" {
-  default = "azureuser"
+  default = "tesk-k8"
 }
 
 variable "admin_password" {
-  default = "P@ssw0rd1234!"
+  default = "Shyam@290890"
 }

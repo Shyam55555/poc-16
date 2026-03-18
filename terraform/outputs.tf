@@ -1,5 +1,9 @@
 output "acr_login_server" {
-  value = azurerm_container_registry.acr.login_server
+  description = "ACR Login Server"
+  value = try(
+    azurerm_container_registry.acr[0].login_server,
+    data.azurerm_container_registry.existing.login_server
+  )
 }
 
 output "aks_name" {
