@@ -1,12 +1,12 @@
 frontend:
-  image: acrname.azurecr.io/frontend
+  image: acrshyam.azurecr.io/frontend
   tag: latest
   replicaCount: 1
   serviceType: ClusterIP
   port: 80
 
 backend:
-  image: acrname.azurecr.io/backend
+  image: acrshyam.azurecr.io/backend
   tag: latest
   replicaCount: 1
   serviceType: ClusterIP
