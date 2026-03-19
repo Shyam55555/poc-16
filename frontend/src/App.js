@@ -1,24 +1,21 @@
-import React, { useEffect, useState } from "react";
-import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Login from "./components/Login";
+import Register from "./components/Register";
+import Success from "./components/Success";
+import ErrorPage from "./components/ErrorPage";
+import Welcome from "./components/Welcome";
 
 function App() {
-  const [message, setMessage] = useState("Loading...");
-
-  useEffect(() => {
-    fetch("/api")   // In AKS this will hit backend service via ingress
-      .then((res) => res.json())
-      .then((data) => setMessage(data.message))
-      .catch(() => setMessage("Error connecting backend"));
-  }, []);
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Azure DevOps AKS Demo</h1>
-        <p>Backend Response:</p>
-        <h2>{message}</h2>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/success" element={<Success />} />
+        <Route path="/error" element={<ErrorPage />} />
+        <Route path="/welcome" element={<Welcome />} />
+      </Routes>
+    </Router>
   );
 }
 
