@@ -1,19 +1,15 @@
-replicaCount: 2
+frontend:
+  image: acrshyam.azurecr.io/frontend
+  tag: latest
+  replicaCount: 2
+  serviceType: NodePort
+  port: 30081
 
-image:
-  repository: acrshyam.azurecr.io/loginpage
-  tag: "latest"
-
-service:
-  type: ClusterIP
-  port: 80
-
-resources:
-  requests:
-    cpu: "200m"
-    memory: "256Mi"
-  limits:
-    cpu: "400m"
-    memory: "512Mi"
+backend:
+  image: acrshyam.azurecr.io/backend
+  tag: latest
+  replicaCount: 2
+  serviceType: ClusterIP
+  port: 8000
 
 env: test
